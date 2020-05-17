@@ -1,5 +1,7 @@
 package com.footm.preferenceservice;
 
+import com.footm.preferenceservice.db.TeamDao;
+import com.footm.preferenceservice.resources.TeamResource;
 import io.dropwizard.Application;
 import io.dropwizard.jdbi3.JdbiFactory;
 import io.dropwizard.setup.Bootstrap;
@@ -29,6 +31,9 @@ public class PreferenceServiceApplication extends Application<PreferenceServiceC
         //database
         final JdbiFactory factory = new JdbiFactory();
         final Jdbi jdbi = factory.build(environment, configuration.getDataSourceFactory(), "postgresql");
-        environment.jersey().register(jdbi);
+
+        TeamDao teamDao = jdbi.onDemand(TeamDao.class);
+
+        environment.jersey().register(new TeamResource(teamDao));
     }
 }
