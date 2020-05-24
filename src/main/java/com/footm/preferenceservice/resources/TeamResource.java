@@ -5,6 +5,7 @@ import com.footm.preferenceservice.api.PlayerPositions;
 import com.footm.preferenceservice.api.TeamCreationRepresentation;
 import com.footm.preferenceservice.db.TeamDao;
 
+import javax.validation.constraints.NotNull;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
@@ -20,8 +21,8 @@ public class TeamResource {
 
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
-    public int createTeam(TeamCreationRepresentation teamCreationRepresentation) {
-        Integer teamId = teamDao.createTeam(teamCreationRepresentation);
+    public long createTeam(@NotNull TeamCreationRepresentation teamCreationRepresentation) {
+        long teamId = teamDao.createTeam(teamCreationRepresentation);
         if (teamId != 0) {
             return teamId;
         }
@@ -30,7 +31,8 @@ public class TeamResource {
 
     @DELETE
     @Path("/{teamId}")
-    public void deleteTeam(@PathParam("teamId") int teamId) {
+    public void deleteTeam(@NotNull @PathParam("teamId") int teamId) {
+        System.out.println("RINORI KTU" + teamId);
         int changedLines = teamDao.deleteTeam(teamId);
         ifNoChangedLineRespondWithNotFound(changedLines);
     }
@@ -38,7 +40,7 @@ public class TeamResource {
     @PUT
     @Path("/{teamId}/name")
     @Consumes(MediaType.TEXT_PLAIN)
-    public void setTeamName(@PathParam("teamId") int teamId, String newTeamName) {
+    public void setTeamName(@NotNull @PathParam("teamId") int teamId, @NotNull String newTeamName) {
         int changedLines = teamDao.setTeamName(teamId, newTeamName);
         ifNoChangedLineRespondWithNotFound(changedLines);
     }

@@ -36,20 +36,20 @@ class TeamResourceTest {
         createTeam.setTeamName("Team Name");
         createTeam.setTeamFormation("5-4-3");
 
-        when(dao.createTeam(createTeam)).thenReturn(4);
+        when(dao.createTeam(createTeam)).thenReturn(2L);
 
         Response expectedResponse = RULE.target("/teams")
                 .request()
                 .post(Entity.entity(createTeam, MediaType.APPLICATION_JSON));
 
-        assertThat(expectedResponse.readEntity(Integer.class)).isEqualTo(4);
+        assertThat(expectedResponse.readEntity(Integer.class)).isEqualTo(2L);
         verify(dao).createTeam(createTeam);
     }
 
     @Test
     void testCreateTeamInternalError() {
         TeamCreationRepresentation createTeam = new TeamCreationRepresentation();
-        when(dao.createTeam(createTeam)).thenReturn(0);
+        when(dao.createTeam(createTeam)).thenReturn(0L);
 
         Response expectedResponse = RULE.target("/teams")
                 .request()

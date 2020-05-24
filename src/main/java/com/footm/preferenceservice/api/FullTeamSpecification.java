@@ -9,7 +9,6 @@ public class FullTeamSpecification {
     private long id;
     private String name;
     private String formation;
-    private Date lastEdited;
     private int ls, st, rs, lw, lf, cf, rf, rw, lam, cam, ram, lm, lcm,
             cm, rcm, rm, lwb, ldm, cdm, rdm, rwb, lb, lcb, cb, rcb, rb, gk;
 
@@ -20,7 +19,6 @@ public class FullTeamSpecification {
         this.id = id;
         this.name = name;
         this.formation = formation;
-        this.lastEdited = lastEdited;
         this.ls = ls;
         this.st = st;
         this.rs = rs;
@@ -78,16 +76,6 @@ public class FullTeamSpecification {
     @JsonProperty
     public void setFormation(String formation) {
         this.formation = formation;
-    }
-
-    @JsonProperty
-    public Date getLastEdited() {
-        return lastEdited;
-    }
-
-    @JsonProperty
-    public void setLastEdited(Date lastEdited) {
-        this.lastEdited = lastEdited;
     }
 
     @JsonProperty
@@ -366,7 +354,6 @@ public class FullTeamSpecification {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", formation='" + formation + '\'' +
-                ", lastEdited=" + lastEdited +
                 ", ls=" + ls +
                 ", st=" + st +
                 ", rs=" + rs +
@@ -431,13 +418,12 @@ public class FullTeamSpecification {
                 rb == that.rb &&
                 gk == that.gk &&
                 Objects.equals(name, that.name) &&
-                Objects.equals(formation, that.formation) &&
-                Objects.equals(lastEdited, that.lastEdited);
+                Objects.equals(formation, that.formation);
     }
 
     @Override
     public int hashCode() {
 
-        return Objects.hash(id, name, formation, lastEdited, ls, st, rs, lw, lf, cf, rf, rw, lam, cam, ram, lm, lcm, cm, rcm, rm, lwb, ldm, cdm, rdm, rwb, lb, lcb, cb, rcb, rb, gk);
+        return Objects.hash(id, name, formation, ls, st, rs, lw, lf, cf, rf, rw, lam, cam, ram, lm, lcm, cm, rcm, rm, lwb, ldm, cdm, rdm, rwb, lb, lcb, cb, rcb, rb, gk);
     }
 }
