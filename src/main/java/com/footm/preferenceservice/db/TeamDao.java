@@ -10,6 +10,13 @@ import org.jdbi.v3.sqlobject.statement.GetGeneratedKeys;
 import org.jdbi.v3.sqlobject.statement.SqlQuery;
 import org.jdbi.v3.sqlobject.statement.SqlUpdate;
 
+/**
+ * The interface TeamDao uses the JDBI SQL Object API to communicate with DB, it takes advantage of mapping between
+ * relations and object.
+ *
+ * @author Rinor Sefa
+ * @author Lundrim Azemi
+ */
 public interface TeamDao {
 
     @SqlUpdate("INSERT INTO teams_formation (name,formation) VALUES (:teamName, :teamFormation::formation)")

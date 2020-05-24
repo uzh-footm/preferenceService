@@ -4,7 +4,12 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.Objects;
 
-
+/**
+ * The class PlayerPositions is a JavaBean objects used to serialize and deserialize JSON request and response object by Jackson.
+ *
+ * @author Rinor Sefa
+ * @author Lundrim Azemi
+ */
 public class PlayerPositions {
     private int ls, st, rs, lw, lf, cf, rf, rw, lam, cam, ram, lm, lcm,
             cm, rcm, rm, lwb, ldm, cdm, rdm, rwb, lb, lcb, cb, rcb, rb, gk;

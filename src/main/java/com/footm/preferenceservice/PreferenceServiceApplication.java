@@ -8,6 +8,12 @@ import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
 import org.jdbi.v3.core.Jdbi;
 
+/**
+ * The class PreferenceServiceApplication pulls together everything and runs the microservice.
+ *
+ * @author Rinor Sefa
+ * @author Lundrim Azemi
+ */
 public class PreferenceServiceApplication extends Application<PreferenceServiceConfiguration> {
 
     public static void main(final String[] args) throws Exception {

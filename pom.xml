@@ -262,8 +262,6 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <username>${env.DOCKER_USERNAME}</username>
-                    <password>${env.DOCKER_PW}</password>
                     <repository>footm/preferenceservice</repository>
                     <tag>${version}</tag>
                     <buildArgs>

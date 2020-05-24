@@ -5,6 +5,12 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Date;
 import java.util.Objects;
 
+/**
+ * The class FullTeamSpecification is a JavaBean objects used to serialize and deserialize JSON request and response object by Jackson.
+ *
+ * @author Rinor Sefa
+ * @author Lundrim Azemi
+ */
 public class FullTeamSpecification {
     private long id;
     private String name;

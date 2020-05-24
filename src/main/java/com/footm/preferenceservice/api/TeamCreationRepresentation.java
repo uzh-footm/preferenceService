@@ -4,6 +4,13 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.Objects;
 
+
+/**
+ * The class TeamCreationRepresentation is a JavaBean objects used to serialize and deserialize JSON request and response object by Jackson.
+ *
+ * @author Rinor Sefa
+ * @author Lundrim Azemi
+ */
 public class TeamCreationRepresentation {
     private String teamName;
     private String teamFormation;

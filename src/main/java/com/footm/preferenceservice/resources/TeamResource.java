@@ -10,6 +10,14 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+
+/**
+ * The class TeamResource is associated with /teams URl. It uses JAX-RS(JERSEY) annotations to define the request and
+ * the response.
+ *
+ * @author Rinor Sefa
+ * @author Lundrim Azemi
+ */
 @Path("teams")
 @Produces(MediaType.APPLICATION_JSON)
 public class TeamResource {
