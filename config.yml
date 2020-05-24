@@ -14,7 +14,7 @@ database:
   password: password
 
   # the JDBC URL for DOCKER change to localhost for local.
-  url: jdbc:postgresql://preferencedb:5555/preferenceDB
+  url: jdbc:postgresql://preferencedb:5555/postgres
 
 
   # any properties specific to your JDBC driver:
