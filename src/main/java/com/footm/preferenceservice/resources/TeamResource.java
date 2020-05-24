@@ -32,8 +32,8 @@ public class TeamResource {
     @DELETE
     @Path("/{teamId}")
     public void deleteTeam(@NotNull @PathParam("teamId") int teamId) {
-        System.out.println("RINORI KTU" + teamId);
         int changedLines = teamDao.deleteTeam(teamId);
+
         ifNoChangedLineRespondWithNotFound(changedLines);
     }
 
@@ -42,6 +42,7 @@ public class TeamResource {
     @Consumes(MediaType.TEXT_PLAIN)
     public void setTeamName(@NotNull @PathParam("teamId") int teamId, @NotNull String newTeamName) {
         int changedLines = teamDao.setTeamName(teamId, newTeamName);
+
         ifNoChangedLineRespondWithNotFound(changedLines);
     }
 
@@ -57,7 +58,6 @@ public class TeamResource {
     @Path("/{teamId}/positions")
     @Consumes(MediaType.APPLICATION_JSON)
     public void setPlayersToPositions(@PathParam("teamId") int teamId, PlayerPositions playerPositions) {
-        // TODO CHECK IF POSITIONS ARE VALID TO FORMATIONS!!
         int changedLines = teamDao.setPlayersToPositions(teamId, playerPositions);
 
         ifNoChangedLineRespondWithNotFound(changedLines);

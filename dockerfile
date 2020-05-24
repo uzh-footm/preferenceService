@@ -1,12 +1,14 @@
-FROM openjdk:8-jdk
+FROM openjdk:8-jre
 
 COPY config.yml /data/preferenceservice/config.yml
-COPY target/preferenceservice-1.0-SNAPSHOT.jar /data/preferenceservice/preferenceservice-1.0-SNAPSHOT.jar
+
+ARG JAR_FILE
+COPY ${JAR_FILE} /data/preferenceservice/preferenceservice.jar
 
 WORKDIR /data/preferenceservice
 
 RUN java -version
 
-CMD ["java","-jar","preferenceservice-1.0-SNAPSHOT.jar","server","config.yml"]
+CMD ["java","-jar","preferenceservice.jar","server","config.yml"]
 
 EXPOSE 8080-8081
